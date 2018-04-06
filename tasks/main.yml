@@ -3,8 +3,11 @@
 ---
 - name: "Install sudo"
   package:
-    name: sudo
+    name: '{{ item }}'
     state: present
+  with_items:
+    - "sudo"
+    - "libselinux-python"
   tags: sudo
 
 - name: "Config sudoers"
