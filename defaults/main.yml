@@ -1,5 +1,5 @@
 ## roles/ansible-role-sudo/defaults/main.yml
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 sudo_wheel_all: nopass
 ...
