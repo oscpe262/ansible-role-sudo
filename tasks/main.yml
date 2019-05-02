@@ -1,13 +1,17 @@
 ## roles/ansible-role-sudo/tasks/main.yml
 # vim:ft=yaml.ansible:
 ---
+- name: "Install libselinux-python"
+  package:
+    name: libselinux-python
+    state: present
+  when: "'RedHat' in ansible_os_family"
+  tags: sudo,selinux
+
 - name: "Install sudo"
   package:
-    name: '{{ item }}'
+    name: sudo
     state: present
-  with_items:
-    - "sudo"
-    - "libselinux-python"
   tags: sudo
 
 - name: "Config sudoers"
