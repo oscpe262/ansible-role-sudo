@@ -5,7 +5,14 @@
   package:
     name: libselinux-python
     state: present
-  when: "'RedHat' in ansible_os_family"
+  when: "'Fedora' in ansible_distribution"
+  tags: sudo,selinux
+
+- name: "Install libselinux-python"
+  package:
+    name: python3-libselinux
+    state: present
+  when: "'RedHat' in ansible_distribution"
   tags: sudo,selinux
 
 - name: "Install sudo"
